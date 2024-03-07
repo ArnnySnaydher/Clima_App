@@ -30,23 +30,27 @@ const paises:Pais[]= [
         <div class="campo flex flex-col gap-5">
             <label 
             class="text-xl font-bold"
-            for="ciudad">Pais</label>
+            for="pais">Pais</label>
             <select
             class="p-3 bg-transparent border border-solid border-white rounded-lg text-white font-normal text-lg "
             name="" 
-            id="">
+            id="pais">
             <option class="text-black" value="">--Selecione un Pais--</option>
             <option  class="text-black" v-for="pais in paises" :value="pais.codigo">{{ pais.nombre }}</option>
             </select>
         </div>
+
+        <input 
+        class="bg-yellow-600 border-none text-white font-bold text-sm uppercase cursor-pointer p-2.5 mt-5  "
+        type="submit" value="Consultar Clima">
     </form>
 </template>
 
 <style scoped>
-.campo::placeholder{
+/* .campo::placeholder{
     color: white;
     opacity: 1;
-}
+} */
 </style>
 
 

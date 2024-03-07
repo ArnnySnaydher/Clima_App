@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import { reactive } from 'vue';
+
+const busqueda = reactive({
+    ciudad:'',
+    pais:''
+})
 type Pais = {
     codigo:string;
     nombre:string;
@@ -21,6 +27,7 @@ const paises:Pais[]= [
             class="text-xl font-bold"
             for="ciudad">Ciudad</label>
             <input 
+            v-model="busqueda.ciudad" 
             class="p-3 bg-transparent border border-solid border-white rounded-lg text-white font-normal text-2xl "
             type="text"
             id="ciudad"
@@ -32,6 +39,7 @@ const paises:Pais[]= [
             class="text-xl font-bold"
             for="pais">Pais</label>
             <select
+            v-model="busqueda.pais"
             class="p-3 bg-transparent border border-solid border-white rounded-lg text-white font-normal text-lg "
             name="" 
             id="pais">

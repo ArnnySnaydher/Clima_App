@@ -2,7 +2,12 @@
 import Formulario from './components/Formulario.vue'
 import useClima from './composables/useClima';
 
+// console.log(process.env.VITE__API__KEY)
+// console.log(import.meta.env)
+
+
 const {obtenerClima} = useClima()
+
 </script>
 
 <template>

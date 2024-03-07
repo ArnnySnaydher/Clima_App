@@ -6,8 +6,13 @@ export default function useClima(){
     }
 
     const obtenerClima =({ciudad,pais}:busqueda) =>{
-        console.log('consultando',ciudad)
-        console.log('consultando',pais)
+
+        console.log(ciudad,pais)
+        //Impoertar el API key
+        const key = import.meta.env.VITE__API__KEY
+        //Obtener la lat,lon
+
+        //Obtener el clima
     }
 
     return{

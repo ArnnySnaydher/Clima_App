@@ -1,7 +1,13 @@
 export default function useClima(){
 
-    const obtenerClima =() =>{
-        console.log('consultando')
+    interface busqueda{
+        ciudad:string,
+        pais :string,
+    }
+
+    const obtenerClima =({ciudad,pais}:busqueda) =>{
+        console.log('consultando',ciudad)
+        console.log('consultando',pais)
     }
 
     return{

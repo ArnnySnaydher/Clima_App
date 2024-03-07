@@ -38,7 +38,7 @@ const consultarClima = () => {
         // return
     }
 
-    emit('obtener-clima')
+    emit('obtener-clima',busqueda)
 }
 
 

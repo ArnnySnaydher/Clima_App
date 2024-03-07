@@ -8,6 +8,8 @@ const busqueda = reactive({
     pais: ''
 })
 
+const emit = defineEmits(['obtener-clima'])
+
 const error = ref("")
 type Pais = {
     codigo: string;
@@ -30,15 +32,16 @@ const consultarClima = () => {
         Swal.fire("Todos  los campos son obligatorios");
         return
         // error.value = "Todos  los campos son obligatorios"
-
         // setTimeout(() => {
         //     error.value = ''
         // }, 2000);
         // return
     }
 
-
+    emit('obtener-clima')
 }
+
+
 </script>
 <template>
 

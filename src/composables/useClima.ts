@@ -1,13 +1,16 @@
 import axios from 'axios';
-import {computed, ref} from  "vue";
+import { computed, ref } from "vue";
 
 export default function useClima() {
 
-    const clima=ref({})
+    const clima = ref({})
     interface busqueda {
         ciudad: string,
         pais: string,
     }
+
+
+
 
     const obtenerClima = async ({ ciudad, pais }: busqueda) => {
 
@@ -25,23 +28,31 @@ export default function useClima() {
 
             const urlClima = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}`
 
-            const {data:resultado} = await axios(urlClima)
-            
-            clima.value=resultado
+            const { data: resultado } = await axios(urlClima)
+
+            clima.value = resultado
 
         } catch (error) {
             console.error(error)
         }
 
     }
-   
-    const mostrarClima= computed(()=>{
-        return Object.values(clima.value).length>0
+
+    const mostrarClima = computed(() => {
+        return Object.values(clima.value).length > 0
     })
+    type Temperatura = number;
+
+    // La función ahora especifica que espera un parámetro del tipo Temperatura
+    const formatearTemperatura = (temperatura: Temperatura): number => {
+        return parseInt(temperatura - 273.15);
+    };
+
 
     return {
         obtenerClima,
         clima,
-        mostrarClima
+        mostrarClima,
+        formatearTemperatura
     }
 }

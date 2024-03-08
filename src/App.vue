@@ -9,6 +9,7 @@ import Clima from './components/Clima.vue';
 
 const {obtenerClima,clima,mostrarClima} = useClima()
 
+
 </script>
 
 <template>
@@ -18,7 +19,7 @@ const {obtenerClima,clima,mostrarClima} = useClima()
     <h1 class="titulo text-center text-3xl pt-12">Buscador de Clima</h1>
     <div class="contenedor buscador-clima grid grid-cols-2 items-center gap-10 mt-12 mx-auto w-11/12 max-w-5xl">
       <Formulario @obtener-clima="obtenerClima"></Formulario>
-      <Clima v-if="mostrarClima"></Clima>
+      <Clima v-if="mostrarClima" :clima="clima"></Clima>
     </div>
   </div>
   

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { computed, ref } from "vue";
+import Swal from 'sweetalert2'
 
 export default function useClima() {
 
@@ -10,6 +11,14 @@ export default function useClima() {
     }
 
     const cargando = ref(false)
+
+    const modal =()=> {Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "No hay Coincidencias",
+      });}
+    
+    
 
     const obtenerClima = async ({ ciudad, pais }: busqueda) => {
 
@@ -23,6 +32,7 @@ export default function useClima() {
             const url = `http://api.openweathermap.org/geo/1.0/direct?q=${ciudad},${pais}&limit=1&appid=${key}`
 
             const { data } = await axios(url)
+            
             //Obtener la lat,lon
             const { lat, lon } = data[0]
 
@@ -35,8 +45,8 @@ export default function useClima() {
             clima.value = resultado
 
 
-        } catch (error) {
-            console.error(error)
+        } catch  {
+            modal()
         } finally {
             cargando.value = false
         }

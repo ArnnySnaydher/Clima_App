@@ -21,6 +21,7 @@ const {obtenerClima,clima,mostrarClima,cargando} = useClima()
     <div class="contenedor buscador-clima grid grid-cols-2 items-center gap-10 mt-12 mx-auto w-11/12 max-w-5xl">
       <Formulario @obtener-clima="obtenerClima"></Formulario>
       <Spinner v-if="cargando"></Spinner>
+      
       <Clima v-if="mostrarClima" :clima="clima"></Clima>
     </div>
   </div>

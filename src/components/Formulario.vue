@@ -16,6 +16,7 @@ type Pais = {
     nombre: string;
 };
 
+
 const paises: Pais[] = [
     { codigo: 'US', nombre: 'Estados Unidos' },
     { codigo: 'MX', nombre: 'México' },
@@ -31,11 +32,6 @@ const consultarClima = () => {
     if (Object.values(busqueda).includes('')) {
         Swal.fire("Todos  los campos son obligatorios");
         return
-        // error.value = "Todos  los campos son obligatorios"
-        // setTimeout(() => {
-        //     error.value = ''
-        // }, 2000);
-        // return
     }
 
     emit('obtener-clima',busqueda)

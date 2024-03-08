@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'image':"url(public/img/bg_clima.jpg)"
+        'image':"url(/img/bg_clima.jpg)"
       },
     },
    

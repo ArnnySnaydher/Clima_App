@@ -1,7 +1,9 @@
 import axios from 'axios';
+import {computed, ref} from  "vue";
 
 export default function useClima() {
 
+    const clima=ref({})
     interface busqueda {
         ciudad: string,
         pais: string,
@@ -24,16 +26,22 @@ export default function useClima() {
             const urlClima = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}`
 
             const {data:resultado} = await axios(urlClima)
-            console.log(resultado)
+            
+            clima.value=resultado
 
         } catch (error) {
             console.error(error)
         }
 
-
     }
+   
+    const mostrarClima= computed(()=>{
+        return Object.values(clima.value).length>0
+    })
 
     return {
-        obtenerClima
+        obtenerClima,
+        clima,
+        mostrarClima
     }
 }

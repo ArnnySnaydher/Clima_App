@@ -5,10 +5,12 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
-    backgroundImage: {
-      'image':"url(public/img/bg_clima.jpg)"
+    extend: {
+      backgroundImage: {
+        'image':"url(public/img/bg_clima.jpg)"
+      },
     },
+   
   },
   plugins: [],
 }

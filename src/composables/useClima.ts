@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export default function useClima(){
 
     interface busqueda{
@@ -5,17 +7,25 @@ export default function useClima(){
         pais :string,
     }
 
-    const obtenerClima =({ciudad,pais}:busqueda) =>{
+    const obtenerClima = async ({ciudad,pais}:busqueda) =>{
 
         //Impoertar el API key
         const key = import.meta.env.VITE__API__KEY
-        //Obtener la lat,lon
 
-        const url = `http://api.openweathermap.org/geo/1.0/direct?q=${ciudad},${pais}&limit=1&appid=${key}`
+        try {
+            const url = `http://api.openweathermap.org/geo/1.0/direct?q=${ciudad},${pais}&limit=1&appid=${key}`
 
-        //Obtener el clima
+            const {data} = await axios(url)
+            //Obtener la lat,lon
+            const {lat,lon} = data[0]
 
-        console.log(url)
+            //Obtener el clima
+
+        } catch (error) {
+            console.error(error)
+        }
+
+        
     }
 
     return{

@@ -59,8 +59,8 @@ export default function useClima() {
     type Temperatura = number;
 
     // La función ahora especifica que espera un parámetro del tipo Temperatura
-    const formatearTemperatura = (temperatura: Temperatura): number => {
-        return parseInt(temperatura - 273.15);
+    const formatearTemperatura = (temperatura:Temperatura)=> {
+        return (temperatura - 273.15).toFixed(1);
     };
 
 
